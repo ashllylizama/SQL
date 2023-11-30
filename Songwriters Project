@@ -1,0 +1,35 @@
+#This analysis utilized the following Songwriters dataset :
+
+
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+
+INSERT INTO singers (fullname, age) VALUES ("Yoongi Min", "30");
+INSERT INTO singers (fullname, age) VALUES ("Jungkook Jeon ", "26");
+INSERT INTO singers (fullname, age) VALUES ("Jimin Park", "28");
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    song TEXT,
+    year INTEGER);
+
+INSERT INTO songs (song, year) VALUES ("ON", "2020");
+INSERT INTO songs (song, year) VALUES ("Telepathy", "2020");
+INSERT INTO songs (song, year) VALUES ("Promise", "2018");
+
+SELECT *
+FROM singers;
+
+SELECT *
+FROM songs; 
+
+# Analysis: 
+
+# What songs did each songwriter write and what year was it released?
+
+SELECT singers.fullname, songs.song, songs.year AS year_released
+FROM singers
+JOIN songs
+ON singers.id=songs.id;
